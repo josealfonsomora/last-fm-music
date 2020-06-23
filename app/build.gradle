@@ -4,6 +4,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'koin'
 
+ext {
+    lastFmApiKeyFromFile = {
+        def props = new Properties()
+        file("../secrets.properties").withInputStream { props.load(it) }
+        return props.getProperty("LASTFM_API_KEY")
+    }
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -14,6 +22,8 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
+        buildConfigField "String", "LASTFM_API_KEY", lastFmApiKeyFromFile()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

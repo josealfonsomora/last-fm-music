@@ -2,9 +2,11 @@ package com.josealfonsomora.lastfmmusic.network
 
 import com.google.gson.GsonBuilder
 import com.josealfonsomora.lastfmmusic.BuildConfig
+import com.josealfonsomora.lastfmmusic.network.services.LastFmService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
+import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -40,6 +42,16 @@ fun provideNetworkModule() = module {
 
     single {
         GsonConverterFactory.create(get())
+    }
+
+    single {
+        Retrofit.Builder()
+            .client(get<OkHttpClient>())
+            .addConverterFactory(get<GsonConverterFactory>())
+            .addCallAdapterFactory(get<RxJava2CallAdapterFactory>())
+            .baseUrl("http://ws.audioscrobbler.com")
+            .build()
+            .create(LastFmService::class.java)
     }
 
 }

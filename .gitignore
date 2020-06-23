@@ -97,3 +97,6 @@ lint/tmp/
 /build
 /captures
 .cxx
+
+# File with api keys
+/secrets.properties
