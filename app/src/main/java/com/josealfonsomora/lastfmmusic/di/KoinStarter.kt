@@ -1,7 +1,9 @@
 package com.josealfonsomora.lastfmmusic.di
 
 import com.josealfonsomora.lastfmmusic.LastFmMusicApplication
+import com.josealfonsomora.lastfmmusic.albumlist.provideAlbumListModule
 import com.josealfonsomora.lastfmmusic.network.provideNetworkModule
+import com.josealfonsomora.lastfmmusic.repository.provideRepositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -18,7 +20,9 @@ fun LastFmMusicApplication.setupKoin() {
         modules(
             listOf(
                 provideCoreModule(),
-                provideNetworkModule()
+                provideNetworkModule(),
+                provideRepositoryModule(),
+                provideAlbumListModule()
             )
         )
     }
