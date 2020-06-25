@@ -13,4 +13,11 @@ class AlbumRepository(private val service: LastFmService) {
                 if (!response.isSuccessful) throw HttpException(response)
                 response.body()?.results?.albummatches?.albumList
             }
+
+    fun getAlbumInfo(mbid: String): Single<Album> =
+        Single.fromCallable { service.getAlbumInfo(mbid = mbid).execute() }
+            .map { response ->
+                if (!response.isSuccessful) throw HttpException(response)
+                response.body()?.album
+            }
 }

@@ -1,6 +1,7 @@
 package com.josealfonsomora.lastfmmusic.di
 
 import com.josealfonsomora.lastfmmusic.LastFmMusicApplication
+import com.josealfonsomora.lastfmmusic.albuminfo.provideAlbumInfoModule
 import com.josealfonsomora.lastfmmusic.albumlist.provideAlbumListModule
 import com.josealfonsomora.lastfmmusic.network.provideNetworkModule
 import com.josealfonsomora.lastfmmusic.repository.provideRepositoryModule
@@ -22,7 +23,8 @@ fun LastFmMusicApplication.setupKoin() {
                 provideCoreModule(),
                 provideNetworkModule(),
                 provideRepositoryModule(),
-                provideAlbumListModule()
+                provideAlbumListModule(),
+                provideAlbumInfoModule()
             )
         )
     }
