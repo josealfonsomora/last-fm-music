@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.josealfonsomora.lastfmmusic.R
+import com.bumptech.glide.Glide
 import com.josealfonsomora.lastfmmusic.BR
+import com.josealfonsomora.lastfmmusic.R
 import com.josealfonsomora.lastfmmusic.businessentities.Album
 import com.josealfonsomora.lastfmmusic.databinding.ItemAlbumBinding
 
-class AlbumListAdapter : RecyclerView.Adapter<AlbumListAdapter.ViewHolder>() {
+class AlbumListAdapter(private val onClickListener: (Album) -> Unit) :
+    RecyclerView.Adapter<AlbumListAdapter.ViewHolder>() {
     private val items = mutableListOf<Album>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,8 +30,15 @@ class AlbumListAdapter : RecyclerView.Adapter<AlbumListAdapter.ViewHolder>() {
         holder.viewModel = viewModel
         holder.binding.apply {
             setVariable(BR.model, viewModel)
+            holder.binding.root.setOnClickListener { onClickListener.invoke(item) }
             executePendingBindings()
         }
+
+    }
+
+    override fun onViewRecycled(holder: ViewHolder) {
+        super.onViewRecycled(holder)
+        Glide.with(holder.itemView.context).clear(holder.binding.image)
     }
 
     fun updateAlbuns(albums: List<Album>) {
