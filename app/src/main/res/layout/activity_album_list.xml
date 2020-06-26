@@ -14,82 +14,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Scrollable view here -->
+    <!-- Scrollable view here -->
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="130dp">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/toolbar_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                app:contentScrim="?attr/colorPrimary"
-                app:expandedTitleTextAppearance="@style/TransparentText"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:statusBarScrim="?attr/colorPrimary"
-                app:toolbarId="@id/toolbar">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="40dp">
-
-                    <EditText
-                        android:id="@+id/search_bar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:drawableStart="@drawable/ic_search"
-                        android:drawablePadding="16dp"
-                        app:backgroundTint="#ffffff"
-                        android:textColor="#ffffff"
-                        android:inputType="text" />
-
-                </LinearLayout>
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@android:color/transparent"
-                    android:elevation="4dp"
-                    app:contentInsetStartWithNavigation="0dp"
-                    app:layout_collapseMode="pin"
-                    app:titleTextColor="#ffffff" />
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/scrollview"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleTextAppearance="@style/TransparentText"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:statusBarScrim="?attr/colorPrimary"
+            app:toolbarId="@id/toolbar">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.josealfonsomora.lastfmmusic.ui.albumlist.AlbumListActivity">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="40dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/list"
+                <EditText
+                    android:id="@+id/search_bar"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:list="@{model.albumsList}"
-                    tools:itemCount="5"
-                    tools:listitem="@layout/item_album" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="16dp"
+                    android:inputType="text"
+                    android:textColor="#ffffff"
+                    app:backgroundTint="#ffffff" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
+            </LinearLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                android:elevation="4dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:layout_collapseMode="pin"
+                app:titleTextColor="#ffffff" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:list="@{model.albumsList}"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_album" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
