@@ -22,9 +22,9 @@ class AlbumInfoViewModel(
     val imageTransitionName = ObservableField<String>()
     val content = ObservableField<String>()
 
-    fun showAlbumInfo(mbid: String, transitionName: String = "") {
+    fun showAlbumInfo(mbid: String, albumName:String, transitionName: String = "") {
         repository
-            .getAlbumInfo(mbid)
+            .getAlbumInfo(mbid, albumName)
             .subscribeOn(ioScheduler)
             .observeOn(uiScheduler)
             .subscribe({ album ->

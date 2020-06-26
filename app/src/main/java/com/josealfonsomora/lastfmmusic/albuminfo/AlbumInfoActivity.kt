@@ -16,6 +16,9 @@ class AlbumInfoActivity : ComponentActivity() {
     private val mbid: String
         get() = intent.getStringExtra(EXTRA_MBID)!!
 
+    private val name: String
+        get() = intent.getStringExtra(EXTRA_NAME)!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,15 +35,17 @@ class AlbumInfoActivity : ComponentActivity() {
     override fun onStart() {
         super.onStart()
 
-        viewModel.showAlbumInfo(mbid)
+        viewModel.showAlbumInfo(mbid, name)
     }
 
     companion object {
-        val EXTRA_MBID = "EXTRA_MBID"
+        private const val EXTRA_MBID = "EXTRA_MBID"
+        private const val EXTRA_NAME = "EXTRA_NAME"
 
-        fun start(activity: ComponentActivity, mbid: String) =
+        fun start(activity: ComponentActivity, mbid: String, name: String) =
             activity.startActivity(Intent(activity, AlbumInfoActivity::class.java).apply {
                 putExtra(EXTRA_MBID, mbid)
+                putExtra(EXTRA_NAME, name)
             })
     }
 }

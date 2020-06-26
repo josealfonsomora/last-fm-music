@@ -12,14 +12,15 @@ interface LastFmService {
     @GET("/2.0/?method=album.search")
     fun getAlbums(
         @Query("api_key") key: String = BuildConfig.LASTFM_API_KEY,
-        @Query("album") album: String = "a",
+        @Query("album") album: String = "",
         @Query("format") json: String = "json"
     ): Call<AlbumSearchResponse>
 
     @GET("/2.0/?method=album.getinfo")
     fun getAlbumInfo(
         @Query("api_key") key: String = BuildConfig.LASTFM_API_KEY,
-        @Query("mbid") mbid: String,
+        @Query("mbid") mbid: String? = null,
+        @Query("album") name: String? = null,
         @Query("format") json: String = "json"
     ): Call<AlbumInfoResponse>
 }

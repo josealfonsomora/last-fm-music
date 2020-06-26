@@ -6,7 +6,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class AlbumListViewModelTest {
@@ -15,12 +15,12 @@ class AlbumListViewModelTest {
     @Test
     fun loadsAlbumListFromRepository() {
         val list = listOf<Album>(mock())
-        whenever(repository.getAlbums()).thenReturn(Single.just(list))
+        whenever(repository.getAlbums("album")).thenReturn(Single.just(list))
 
         val viewModel =
             AlbumListViewModel(repository, Schedulers.trampoline(), Schedulers.trampoline())
 
+        viewModel.searchAlbum("album")
         assertEquals(list, viewModel.albumsList.get())
-
     }
 }

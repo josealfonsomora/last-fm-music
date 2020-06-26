@@ -13,35 +13,31 @@ import io.reactivex.schedulers.Schedulers
 import retrofit2.HttpException
 
 class AlbumListViewModel(
-    repository: AlbumRepository,
-    ioScheduler: Scheduler = Schedulers.io(),
-    uiScheduler: Scheduler = AndroidSchedulers.mainThread()
+    private val repository: AlbumRepository,
+    private val ioScheduler: Scheduler = Schedulers.io(),
+    private val uiScheduler: Scheduler = AndroidSchedulers.mainThread()
 ) : ViewModel() {
     private val TAG = "AlbumListViewModel"
     private val disposables = CompositeDisposable()
 
     val albumsList = ObservableField<List<Album>>()
 
-    init {
+    override fun onCleared() {
+        disposables.dispose()
+        super.onCleared()
+    }
+
+    fun searchAlbum(album: CharSequence) {
         repository
-            .getAlbums()
+            .getAlbums(album.toString())
             .subscribeOn(ioScheduler)
             .observeOn(uiScheduler)
             .subscribe(
-                {
-                    if (it.isNotEmpty()) {
-                        albumsList.set(it)
-                    }
-                },
+                { albumsList.set(it) },
                 { exception ->
                     if (exception is HttpException) {
                         Log.e(TAG, exception.toString())
                     }
                 }).disposeWith(disposables)
-    }
-
-    override fun onCleared() {
-        disposables.dispose()
-        super.onCleared()
     }
 }
