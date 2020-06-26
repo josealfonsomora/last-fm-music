@@ -2,8 +2,6 @@
 
 A last.fm search mobile app
 
-
-Last.fm API
 The API is provided by Last.fm, the response data is in JSON format and the API documentation is provided below.
 API Key:
 1) Sign-up for a last.fm account at http://last.fm
@@ -17,3 +15,7 @@ and ad it there
 `./secrets.properties`
 
 `LASTFM_API_KEY="{API_KEY}"`
+
+## Screenshots
+
+![album](https://user-images.githubusercontent.com/793226/85787778-3393f500-b72c-11ea-8547-a70712bd4b68.gif)
