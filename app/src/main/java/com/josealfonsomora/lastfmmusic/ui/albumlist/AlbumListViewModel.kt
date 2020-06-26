@@ -1,4 +1,4 @@
-package com.josealfonsomora.lastfmmusic.albumlist
+package com.josealfonsomora.lastfmmusic.ui.albumlist
 
 import android.util.Log
 import androidx.databinding.ObservableField

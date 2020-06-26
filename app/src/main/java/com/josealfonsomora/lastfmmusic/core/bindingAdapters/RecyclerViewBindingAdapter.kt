@@ -2,7 +2,7 @@ package com.josealfonsomora.lastfmmusic.core.bindingAdapters
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.josealfonsomora.lastfmmusic.albumlist.AlbumListAdapter
+import com.josealfonsomora.lastfmmusic.ui.albumlist.AlbumListAdapter
 import com.josealfonsomora.lastfmmusic.businessentities.Album
 
 object RecyclerViewBindingAdapter {

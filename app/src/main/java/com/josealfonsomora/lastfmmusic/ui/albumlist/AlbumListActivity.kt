@@ -1,4 +1,4 @@
-package com.josealfonsomora.lastfmmusic.albumlist
+package com.josealfonsomora.lastfmmusic.ui.albumlist
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,7 +6,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.josealfonsomora.lastfmmusic.R
-import com.josealfonsomora.lastfmmusic.albuminfo.AlbumInfoActivity
+import com.josealfonsomora.lastfmmusic.ui.albuminfo.AlbumInfoActivity
 import com.josealfonsomora.lastfmmusic.databinding.ActivityAlbumListBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 

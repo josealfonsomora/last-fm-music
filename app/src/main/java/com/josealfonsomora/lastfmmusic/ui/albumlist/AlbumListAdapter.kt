@@ -1,4 +1,4 @@
-package com.josealfonsomora.lastfmmusic.albumlist
+package com.josealfonsomora.lastfmmusic.ui.albumlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

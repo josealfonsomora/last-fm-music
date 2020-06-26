@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.josealfonsomora.lastfmmusic.albuminfo.AlbumInfoViewModel" />
+            type="com.josealfonsomora.lastfmmusic.ui.albuminfo.AlbumInfoViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

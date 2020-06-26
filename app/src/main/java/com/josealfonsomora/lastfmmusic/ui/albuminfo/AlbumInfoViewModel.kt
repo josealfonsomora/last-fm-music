@@ -1,4 +1,4 @@
-package com.josealfonsomora.lastfmmusic.albuminfo
+package com.josealfonsomora.lastfmmusic.ui.albuminfo
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel

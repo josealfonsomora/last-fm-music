@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.josealfonsomora.lastfmmusic.albumlist.AlbumAdapterItemViewModel" />
+            type="com.josealfonsomora.lastfmmusic.ui.albumlist.AlbumAdapterItemViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
