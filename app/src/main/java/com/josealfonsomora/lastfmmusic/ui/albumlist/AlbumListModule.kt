@@ -1,4 +1,4 @@
-package com.josealfonsomora.lastfmmusic.albumlist
+package com.josealfonsomora.lastfmmusic.ui.albumlist
 
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module

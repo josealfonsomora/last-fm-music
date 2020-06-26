@@ -1,4 +1,4 @@
-package com.josealfonsomora.lastfmmusic.albuminfo
+package com.josealfonsomora.lastfmmusic.ui.albuminfo
 
 import com.josealfonsomora.lastfmmusic.businessentities.Album
 import com.josealfonsomora.lastfmmusic.network.services.Image
